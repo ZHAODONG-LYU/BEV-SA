@@ -5,6 +5,7 @@ This repository provides hardware source code for the MSDA sampling-and-aggregat
 ## Directory Structure
 
 - `original/`: original source version of the MSDA sampling-and-aggregation kernel.
+- `optimized/`: optimized INT16 source version of the MSDA sampling-and-aggregation kernel.
 
 ## Original Version
 
@@ -20,6 +21,20 @@ This version uses:
 - 8 sampling points per level;
 - bilinear interpolation;
 - a direct loop-based implementation without query grouping or feature-value quantization.
+
+## Optimized Version
+
+The `optimized/` directory contains an INT16 optimized source version with query-grouped execution.
+
+This version uses:
+
+- INT16 feature values with higher-precision SL, AW, and accumulation data paths;
+- 4 query groups;
+- 4 feature levels;
+- 8 sampling points per level;
+- nearest-neighbor sampling.
+
+The paper's deployed 8-bit feature-value configuration will be added separately.
 
 ## Scope
 
