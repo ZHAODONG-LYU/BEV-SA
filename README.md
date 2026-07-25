@@ -5,7 +5,8 @@ This repository provides hardware source code for the MSDA sampling-and-aggregat
 ## Directory Structure
 
 - `original/`: original source version of the MSDA sampling-and-aggregation kernel.
-- `optimized/`: optimized INT16 source version of the MSDA sampling-and-aggregation kernel.
+- `optimized/`: optimized source example of the MSDA sampling-and-aggregation kernel.
+- `template/`: configurable-precision source template for the MSDA sampling-and-aggregation kernel.
 
 ## Original Version
 
@@ -22,11 +23,11 @@ This version uses:
 - bilinear interpolation;
 - a direct loop-based implementation without query grouping or feature-value quantization.
 
-## Optimized Version
+## Optimized Example
 
-The `optimized/` directory contains an INT16 optimized source version with query-grouped execution.
+The `optimized/` directory contains an optimized source example with query-grouped execution.
 
-This version uses:
+This example uses:
 
 - INT16 feature values with higher-precision SL, AW, and accumulation data paths;
 - 4 query groups;
@@ -34,7 +35,15 @@ This version uses:
 - 8 sampling points per level;
 - nearest-neighbor sampling.
 
-The paper's deployed 8-bit feature-value configuration will be added separately.
+## Configurable-Precision Template
+
+The `template/` directory provides a configurable-precision source template.
+
+Feature-value, SL, AW, sampling, accumulation widths, and the number of feature values per feature pack are defined in `template/msda_top.hpp`.
+
+This template does not assume that lower feature precision must use the full feature bus width.
+
+Alternative precision settings require matching packed inputs and experimental validation before use. Directly changing precision parameters without validation may introduce large numerical errors.
 
 ## Scope
 
