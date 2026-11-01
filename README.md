@@ -5,8 +5,9 @@ This repository provides hardware source code for the MSDA sampling-and-aggregat
 ## Directory Structure
 
 - `original/`: original source version of the MSDA sampling-and-aggregation kernel.
-- `optimized/`: optimized source example of the MSDA sampling-and-aggregation kernel.
+- `optimized/`: optimized BEV-SA sampling-and-aggregation kernel.
 - `template/`: configurable-precision source template for the MSDA sampling-and-aggregation kernel.
+- `reim_comp/`: kernels reimplemented for comparison with BEV-SA.
 
 ## Original Version
 
@@ -29,7 +30,7 @@ The `optimized/` directory contains an optimized source example with query-group
 
 This example uses:
 
-- INT16 feature values with higher-precision SL, AW, and accumulation data paths;
+- INT8 feature values with higher-precision SL, AW, and accumulation data paths;
 - 4 query groups;
 - 4 feature levels;
 - 8 sampling points per level;
